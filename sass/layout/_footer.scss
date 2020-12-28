@@ -66,19 +66,21 @@
     transition-property: color;
     transition-property: background-color;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-
-.social-list-footer.link:hover .icon,
-.social-list-footer.link:focus .icon{
+    &:hover .icon,
+    &:focus .icon{
     fill: var(--white-color);
 
 }
-.social-list-footer.link:hover,
-.social-list-footer.link:focus{
+
+    &:hover,
+    &:focus{
     background-color: var(--accent-color);
 
 }
+}
+
+
 
 .section-join{
     margin-left: 70px;
@@ -92,7 +94,6 @@
 .section-subscribe{
     margin-left: 93px;
 }
-
 
 
 .button.subscribe{

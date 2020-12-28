@@ -52,6 +52,11 @@
     background: rgba(0, 0, 0, 0.2);
     z-index: 1; 
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+
+    &.is-hidden{
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .modal{
@@ -66,13 +71,14 @@
     padding: 40px;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transform: translate(-50%, -50%) scale(1) rotate(0deg);
+
+    .backdrop.is-hidden &{
+        transform:  translate(-50%, -50%) scale(0.9) rotate(90deg);
+        
+    }
    
 }
 
-.backdrop.is-hidden .modal{
-    transform:  translate(-50%, -50%) scale(0.9) rotate(90deg);
-    
-}
 
 .close-btn{
     padding: 3px 3px;
@@ -82,13 +88,14 @@
     width: 30px;
     height: 30px; 
     background-color: #FFFFFF;
-}
 
-.close-btn:hover,
-.close-btn:focus{
+    &:hover,
+    &:focus{
     fill: var(--accent-color);
    
 }
+}
+
 
 .close-position {
     position: absolute;
@@ -96,10 +103,8 @@
     right: 8px;
     
  }
- .backdrop.is-hidden{
-    opacity: 0;
-    pointer-events: none;
-}
+
+
 .call-back{
     font-size: 20px;
     line-height: 1.15;
@@ -122,18 +127,20 @@
     border-radius: 4px;
     padding-left: 42px;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.modal__form-input:focus,
-.modal__form-input:hover{
+    &:focus,
+    &:hover{
     outline: none;
     border-color: var(--accent-color);
 }
 
-.modal__form-input:focus + .modal__form-icon,
-.modal__form-input:hover + .modal__form-icon {
+    &:focus + .modal__form-icon,
+    &:hover + .modal__form-icon {
     fill: var(--accent-color);
 }
+}
+
+
 
 .modal__form-icon{
     position: absolute;
@@ -169,23 +176,14 @@
     resize: none;
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-}
-
-.modal__form-message:focus,
-.modal__form-message:hover{
+    &:focus,
+    &:hover{
     outline: none;
     border-color: var(--accent-color);
 }
 
-.modal__form-policy-text::before{
-    display:inline-flex;
-    content: "";
-    width: 16px;
-    height: 15px;
-    border: 1px solid black;
-    margin-right: 8px;
-
 }
+
 
 .modal__form-policy:checked + .modal__form-policy-text::before{
     background-image: url(../images/accept.svg);
@@ -202,6 +200,16 @@
     line-height: 1.714;
     letter-spacing: 0.03em;
     margin-bottom: 30px;
+
+    &::before{
+        display:inline-flex;
+        content: "";
+        width: 16px;
+        height: 15px;
+        border: 1px solid black;
+        margin-right: 8px;
+    
+    }
 }
 
 .button-modal{
